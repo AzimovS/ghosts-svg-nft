@@ -51,6 +51,7 @@
     "theme": "yarn workspace @scaffold-eth/react-app theme",
     "watch-theme": "yarn workspace @scaffold-eth/react-app watch"
   },
+  "packageManager": "yarn@1.22.21",
   "workspaces": {
     "packages": [
       "packages/*"
