@@ -353,6 +353,13 @@ export const NETWORKS = {
     faucet: "https://xdai-faucet.top/",
     blockExplorer: "https://blockscout.com/poa/xdai/",
   },
+  optimism: {
+    name: "optimism",
+    color: "#f01a37",
+    chainId: 10,
+    blockExplorer: "https://optimistic.etherscan.io/",
+    rpcUrl: `https://mainnet.optimism.io`,
+  },
   matic: {
     name: "matic",
     color: "#2bbdf7",

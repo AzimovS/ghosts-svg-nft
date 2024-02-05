@@ -58,7 +58,7 @@ const ipfs = ipfsAPI({ host: "ipfs.infura.io", port: "5001", protocol: "https" }
 */
 
 /// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS.optimism; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = true;
@@ -406,7 +406,7 @@ function App(props) {
               }}
               to="/"
             >
-              Your Loogies
+              Your NFTs
             </Link>
           </Menu.Item>
           <Menu.Item key="/debug">
@@ -431,8 +431,9 @@ function App(props) {
 
             <div style={{ maxWidth: 820, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
               {isSigner?(
-                <Button type={"primary"} onClick={()=>{
-                  tx( writeContracts.YourCollectible.mintItem() )
+                <Button type={"primary"} onClick={async ()=>{
+                  const priceRightNow = await readContracts.YourCollectible.price();
+                  tx( writeContracts.YourCollectible.mintItem({ value: priceRightNow, gasLimit: 300000 }) )
                 }}>MINT</Button>
               ):(
                 <Button type={"primary"} onClick={loadWeb3Modal}>CONNECT WALLET</Button>

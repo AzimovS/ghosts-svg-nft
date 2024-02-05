@@ -61,5 +61,8 @@
       "**/hardhat",
       "**/hardhat/**"
     ]
+  },
+  "dependencies": {
+    "vercel": "^33.4.1"
   }
 }
